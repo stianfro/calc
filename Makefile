@@ -5,3 +5,5 @@ generate:
 run:
 	air --build.cmd "go build -o bin/server server/main.go" --build.bin "./bin/server"
 
+ui:
+	grpcui --plaintext localhost:8080
