@@ -19,7 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	CalculatorService_Add_FullMethodName = "/calculator.v1.CalculatorService/Add"
+	CalculatorService_Add_FullMethodName    = "/calculator.v1.CalculatorService/Add"
+	CalculatorService_Divide_FullMethodName = "/calculator.v1.CalculatorService/Divide"
+	CalculatorService_Sum_FullMethodName    = "/calculator.v1.CalculatorService/Sum"
 )
 
 // CalculatorServiceClient is the client API for CalculatorService service.
@@ -27,6 +29,8 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CalculatorServiceClient interface {
 	Add(ctx context.Context, in *AddRequest, opts ...grpc.CallOption) (*AddResponse, error)
+	Divide(ctx context.Context, in *DivideRequest, opts ...grpc.CallOption) (*DivideResponse, error)
+	Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error)
 }
 
 type calculatorServiceClient struct {
@@ -46,11 +50,31 @@ func (c *calculatorServiceClient) Add(ctx context.Context, in *AddRequest, opts 
 	return out, nil
 }
 
+func (c *calculatorServiceClient) Divide(ctx context.Context, in *DivideRequest, opts ...grpc.CallOption) (*DivideResponse, error) {
+	out := new(DivideResponse)
+	err := c.cc.Invoke(ctx, CalculatorService_Divide_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *calculatorServiceClient) Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error) {
+	out := new(SumResponse)
+	err := c.cc.Invoke(ctx, CalculatorService_Sum_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CalculatorServiceServer is the server API for CalculatorService service.
 // All implementations should embed UnimplementedCalculatorServiceServer
 // for forward compatibility
 type CalculatorServiceServer interface {
 	Add(context.Context, *AddRequest) (*AddResponse, error)
+	Divide(context.Context, *DivideRequest) (*DivideResponse, error)
+	Sum(context.Context, *SumRequest) (*SumResponse, error)
 }
 
 // UnimplementedCalculatorServiceServer should be embedded to have forward compatible implementations.
@@ -59,6 +83,12 @@ type UnimplementedCalculatorServiceServer struct {
 
 func (UnimplementedCalculatorServiceServer) Add(context.Context, *AddRequest) (*AddResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Add not implemented")
+}
+func (UnimplementedCalculatorServiceServer) Divide(context.Context, *DivideRequest) (*DivideResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Divide not implemented")
+}
+func (UnimplementedCalculatorServiceServer) Sum(context.Context, *SumRequest) (*SumResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Sum not implemented")
 }
 
 // UnsafeCalculatorServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -90,6 +120,42 @@ func _CalculatorService_Add_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CalculatorService_Divide_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DivideRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CalculatorServiceServer).Divide(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CalculatorService_Divide_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CalculatorServiceServer).Divide(ctx, req.(*DivideRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CalculatorService_Sum_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SumRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CalculatorServiceServer).Sum(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CalculatorService_Sum_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CalculatorServiceServer).Sum(ctx, req.(*SumRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // CalculatorService_ServiceDesc is the grpc.ServiceDesc for CalculatorService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -100,6 +166,14 @@ var CalculatorService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Add",
 			Handler:    _CalculatorService_Add_Handler,
+		},
+		{
+			MethodName: "Divide",
+			Handler:    _CalculatorService_Divide_Handler,
+		},
+		{
+			MethodName: "Sum",
+			Handler:    _CalculatorService_Sum_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

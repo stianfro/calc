@@ -6,7 +6,9 @@ import (
 	"net"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/reflection"
+	"google.golang.org/grpc/status"
 
 	"github.com/stianfro/calc/gen/go/calculator/v1"
 )
@@ -19,6 +21,34 @@ func (s *server) Add(ctx context.Context, in *pb.AddRequest) (*pb.AddResponse, e
 	log.Print("received add request")
 	return &pb.AddResponse{
 		Result: in.A + in.B,
+	}, nil
+}
+
+func (s *server) Divide(ctx context.Context, in *pb.DivideRequest) (*pb.DivideResponse, error) {
+	log.Print("received divide request")
+
+	if in.B == 0 {
+		return nil, status.Error(
+			codes.InvalidArgument, "Cannot device by zero",
+		)
+	}
+
+	return &pb.DivideResponse{
+		Result: in.A / in.B,
+	}, nil
+}
+
+func (s *server) Sum(ctx context.Context, in *pb.SumRequest) (*pb.SumResponse, error) {
+	log.Print("received sum request")
+
+	var sum int64
+
+	for _, number := range in.Numbers {
+		sum += number
+	}
+
+	return &pb.SumResponse{
+		Result: sum,
 	}, nil
 }
 

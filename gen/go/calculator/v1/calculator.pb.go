@@ -122,6 +122,202 @@ func (x *AddResponse) GetResult() int64 {
 	return 0
 }
 
+type DivideRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	A int64 `protobuf:"varint,1,opt,name=a,proto3" json:"a,omitempty"`
+	B int64 `protobuf:"varint,2,opt,name=b,proto3" json:"b,omitempty"`
+}
+
+func (x *DivideRequest) Reset() {
+	*x = DivideRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_calculator_v1_calculator_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DivideRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DivideRequest) ProtoMessage() {}
+
+func (x *DivideRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_calculator_v1_calculator_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DivideRequest.ProtoReflect.Descriptor instead.
+func (*DivideRequest) Descriptor() ([]byte, []int) {
+	return file_calculator_v1_calculator_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *DivideRequest) GetA() int64 {
+	if x != nil {
+		return x.A
+	}
+	return 0
+}
+
+func (x *DivideRequest) GetB() int64 {
+	if x != nil {
+		return x.B
+	}
+	return 0
+}
+
+type DivideResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Result int64 `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+}
+
+func (x *DivideResponse) Reset() {
+	*x = DivideResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_calculator_v1_calculator_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DivideResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DivideResponse) ProtoMessage() {}
+
+func (x *DivideResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_calculator_v1_calculator_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DivideResponse.ProtoReflect.Descriptor instead.
+func (*DivideResponse) Descriptor() ([]byte, []int) {
+	return file_calculator_v1_calculator_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *DivideResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
+type SumRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Numbers []int64 `protobuf:"varint,1,rep,packed,name=numbers,proto3" json:"numbers,omitempty"`
+}
+
+func (x *SumRequest) Reset() {
+	*x = SumRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_calculator_v1_calculator_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SumRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SumRequest) ProtoMessage() {}
+
+func (x *SumRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_calculator_v1_calculator_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SumRequest.ProtoReflect.Descriptor instead.
+func (*SumRequest) Descriptor() ([]byte, []int) {
+	return file_calculator_v1_calculator_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *SumRequest) GetNumbers() []int64 {
+	if x != nil {
+		return x.Numbers
+	}
+	return nil
+}
+
+type SumResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Result int64 `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
+}
+
+func (x *SumResponse) Reset() {
+	*x = SumResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_calculator_v1_calculator_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SumResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SumResponse) ProtoMessage() {}
+
+func (x *SumResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_calculator_v1_calculator_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SumResponse.ProtoReflect.Descriptor instead.
+func (*SumResponse) Descriptor() ([]byte, []int) {
+	return file_calculator_v1_calculator_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *SumResponse) GetResult() int64 {
+	if x != nil {
+		return x.Result
+	}
+	return 0
+}
+
 var File_calculator_v1_calculator_proto protoreflect.FileDescriptor
 
 var file_calculator_v1_calculator_proto_rawDesc = []byte{
@@ -133,13 +329,31 @@ var file_calculator_v1_calculator_proto_rawDesc = []byte{
 	0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x01, 0x62, 0x22, 0x25, 0x0a, 0x0b, 0x41, 0x64, 0x64,
 	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x73, 0x75,
 	0x6c, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74,
-	0x32, 0x51, 0x0a, 0x11, 0x43, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x6f, 0x72, 0x53, 0x65,
-	0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x03, 0x41, 0x64, 0x64, 0x12, 0x19, 0x2e, 0x63,
-	0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x41, 0x64, 0x64,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x63, 0x61, 0x6c, 0x63, 0x75, 0x6c,
-	0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x41, 0x64, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x42, 0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+	0x22, 0x2b, 0x0a, 0x0d, 0x44, 0x69, 0x76, 0x69, 0x64, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x0c, 0x0a, 0x01, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x01, 0x61, 0x12,
+	0x0c, 0x0a, 0x01, 0x62, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x01, 0x62, 0x22, 0x28, 0x0a,
+	0x0e, 0x44, 0x69, 0x76, 0x69, 0x64, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x16, 0x0a, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52,
+	0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x26, 0x0a, 0x0a, 0x53, 0x75, 0x6d, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x73,
+	0x18, 0x01, 0x20, 0x03, 0x28, 0x03, 0x52, 0x07, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x22,
+	0x25, 0x0a, 0x0b, 0x53, 0x75, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16,
+	0x0a, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06,
+	0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x32, 0xd6, 0x01, 0x0a, 0x11, 0x43, 0x61, 0x6c, 0x63, 0x75,
+	0x6c, 0x61, 0x74, 0x6f, 0x72, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x03,
+	0x41, 0x64, 0x64, 0x12, 0x19, 0x2e, 0x63, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x6f, 0x72,
+	0x2e, 0x76, 0x31, 0x2e, 0x41, 0x64, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a,
+	0x2e, 0x63, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x41,
+	0x64, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x45, 0x0a, 0x06, 0x44, 0x69,
+	0x76, 0x69, 0x64, 0x65, 0x12, 0x1c, 0x2e, 0x63, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x6f,
+	0x72, 0x2e, 0x76, 0x31, 0x2e, 0x44, 0x69, 0x76, 0x69, 0x64, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x63, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x6f, 0x72, 0x2e,
+	0x76, 0x31, 0x2e, 0x44, 0x69, 0x76, 0x69, 0x64, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x3c, 0x0a, 0x03, 0x53, 0x75, 0x6d, 0x12, 0x19, 0x2e, 0x63, 0x61, 0x6c, 0x63, 0x75,
+	0x6c, 0x61, 0x74, 0x6f, 0x72, 0x2e, 0x76, 0x31, 0x2e, 0x53, 0x75, 0x6d, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x63, 0x61, 0x6c, 0x63, 0x75, 0x6c, 0x61, 0x74, 0x6f, 0x72,
+	0x2e, 0x76, 0x31, 0x2e, 0x53, 0x75, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42,
+	0x06, 0x5a, 0x04, 0x2e, 0x2f, 0x70, 0x62, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -154,16 +368,24 @@ func file_calculator_v1_calculator_proto_rawDescGZIP() []byte {
 	return file_calculator_v1_calculator_proto_rawDescData
 }
 
-var file_calculator_v1_calculator_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_calculator_v1_calculator_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_calculator_v1_calculator_proto_goTypes = []interface{}{
-	(*AddRequest)(nil),  // 0: calculator.v1.AddRequest
-	(*AddResponse)(nil), // 1: calculator.v1.AddResponse
+	(*AddRequest)(nil),     // 0: calculator.v1.AddRequest
+	(*AddResponse)(nil),    // 1: calculator.v1.AddResponse
+	(*DivideRequest)(nil),  // 2: calculator.v1.DivideRequest
+	(*DivideResponse)(nil), // 3: calculator.v1.DivideResponse
+	(*SumRequest)(nil),     // 4: calculator.v1.SumRequest
+	(*SumResponse)(nil),    // 5: calculator.v1.SumResponse
 }
 var file_calculator_v1_calculator_proto_depIdxs = []int32{
 	0, // 0: calculator.v1.CalculatorService.Add:input_type -> calculator.v1.AddRequest
-	1, // 1: calculator.v1.CalculatorService.Add:output_type -> calculator.v1.AddResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	2, // 1: calculator.v1.CalculatorService.Divide:input_type -> calculator.v1.DivideRequest
+	4, // 2: calculator.v1.CalculatorService.Sum:input_type -> calculator.v1.SumRequest
+	1, // 3: calculator.v1.CalculatorService.Add:output_type -> calculator.v1.AddResponse
+	3, // 4: calculator.v1.CalculatorService.Divide:output_type -> calculator.v1.DivideResponse
+	5, // 5: calculator.v1.CalculatorService.Sum:output_type -> calculator.v1.SumResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -199,6 +421,54 @@ func file_calculator_v1_calculator_proto_init() {
 				return nil
 			}
 		}
+		file_calculator_v1_calculator_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DivideRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_calculator_v1_calculator_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DivideResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_calculator_v1_calculator_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SumRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_calculator_v1_calculator_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SumResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -206,7 +476,7 @@ func file_calculator_v1_calculator_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_calculator_v1_calculator_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
